@@ -64,7 +64,7 @@ public class UpdateController {
         setView(sendMessage);
     }
     // передает сообщение пользователю
-    private void setView(SendMessage sendMessage) {
+    public void setView(SendMessage sendMessage) {
         telegramBot.sendAnsverMassege(sendMessage);
     }
     private void processPhotoMessage(Update update) {

@@ -33,12 +33,10 @@ public class TelegramBot extends TelegramLongPollingBot {
     public String getBotUsername() {
         return botName;
     }
-
     @Override
     public String getBotToken() {
         return botToken;
     }
-
     @Override
     public void onUpdateReceived(Update update) {
        updateController.processUpdate(update);
