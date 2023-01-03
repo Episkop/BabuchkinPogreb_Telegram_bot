@@ -32,7 +32,7 @@ public class UpdateController {
             log.error("Received update is NULL");
             return;// если переменная вообще пустая
         }
-        if (update.getMessage() != null) {// если сообщение не пустое
+        if (update.hasMessage()) {// если сообщение не пустое
             distributeMessageByType(update);
         } else {
             log.error("Unsupported message type is received" + update);
@@ -43,11 +43,11 @@ public class UpdateController {
     // с помощью класса messageUtils и метода setUnsupportedMessageTypeView
     private void distributeMessageByType(Update update) {
         var message = update.getMessage();
-        if (message.getText() != null) {
+        if (message.hasText()) {
             processTextMessage(update);
-        } else if (message.getDocument() != null) {
+        } else if (message.hasDocument()) {
             processDocMessage(update);
-        } else if (message.getPhoto() != null) {
+        } else if (message.hasPhoto()) {
             processPhotoMessage(update);
         } else {
             setUnsupportedMessageTypeView(update);
